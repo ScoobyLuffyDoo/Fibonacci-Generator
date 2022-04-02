@@ -1,4 +1,6 @@
 from functools import lru_cache
+import time as tm 
+start_time = tm.time()
 
 @lru_cache(maxsize= 1000)
 def fibonacci(n):
@@ -7,5 +9,7 @@ def fibonacci(n):
     elif n > 2:
         return fibonacci(n-1) + fibonacci(n-2)
 
-for n in range(1,11001):
+for n in range(1,40):
     print(n,":" , fibonacci(n))
+time_elapsed = tm.time() - start_time
+print(f"time elapsed: {round(time_elapsed,10)}")
